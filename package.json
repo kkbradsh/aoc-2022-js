@@ -1,0 +1,29 @@
+{
+  "name": "advent-of-code-2022",
+  "version": "1.0.0",
+  "description": "Advent Of Code 2022 in Javascript",
+  "scripts": {
+    "build": "npm run clean && babel --copy-files \"./src\" --out-dir \"./dist\"",
+    "clean": "rimraf dist",
+    "lint": "echo NOT IMPLEMENTED YET",
+    "start": "node \"./dist/index.js\"",
+    "test": "echo NOT IMPLEMENTED YET"
+  },
+  "author": "Kim Bradshaw",
+  "license": "ISC",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "7.4.4",
+    "babel-eslint": "10.0.1",
+    "rimraf": "^3.0.2"
+  }
+}
