@@ -7,7 +7,7 @@
     "clean": "rimraf dist",
     "lint": "echo NOT IMPLEMENTED YET",
     "start": "node \"./dist/index.js\"",
-    "test": "echo NOT IMPLEMENTED YET"
+    "test": "jest"
   },
   "author": "Kim Bradshaw",
   "license": "ISC",
@@ -24,6 +24,8 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "7.4.4",
     "babel-eslint": "10.0.1",
+    "babel-jest": "^29.3.1",
+    "jest": "^29.3.1",
     "rimraf": "^3.0.2"
   }
 }

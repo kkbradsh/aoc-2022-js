@@ -1,4 +1,4 @@
-import * as reader from '../utils/fileRead';
+import * as reader from '../../utils/fileRead';
 
 const parseArrayIntoGroupedSummary = (input) => {
   let output = [];
@@ -13,19 +13,7 @@ const parseArrayIntoGroupedSummary = (input) => {
   return output;
 };
 
-export const test = () => {};
-
-export const processPart1 = async (file) => {
-  const input = await reader.readTextFile(file);
-
-  // sum calories per elf
-  let elves = parseArrayIntoGroupedSummary(input);
-
-  // return max
-  return Math.max(...elves);
-};
-
-export const processPart2 = async (file) => {
+export const process = async (file) => {
   const input = await reader.readTextFile(file);
 
   // sum calories per elf
