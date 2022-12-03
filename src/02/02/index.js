@@ -54,6 +54,7 @@ const playGame = (input) => {
     for (let play in RUBRIC[theirPlay]) {
       if (RUBRIC[theirPlay][play] == myOutcome) {
         myPlay = play;
+        break;
       }
     }
     score = score + SCORE[myPlay] + myOutcome;
