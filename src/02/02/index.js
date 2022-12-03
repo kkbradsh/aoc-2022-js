@@ -50,7 +50,7 @@ const playGame = (input) => {
     const [theirMysteryGuess, myMysteryOutcome] = input[i].split(' ');
     const theirGuess = ABC[theirMysteryGuess];
     const myOutcome = XYZ[myMysteryOutcome];
-    let myGuess = 0;
+    let myGuess = '';
     for (let guess in RUBRIC[theirGuess]) {
       if (RUBRIC[theirGuess][guess] == myOutcome) {
         myGuess = guess;
