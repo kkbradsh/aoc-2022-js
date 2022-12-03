@@ -4,20 +4,22 @@ export const process = async (file) => {
   const input = await readTextFile(file);
   let priorities = [];
   for (let i = 0; i < input.length; i = i + 3) {
-    // Get elves
-    const elf1 = input[i + 0];
-    const elf2 = input[i + 1];
-    const elf3 = input[i + 2];
+    // Get compartments
+    const compartment1 = input[i + 0];
+    const compartment2 = input[i + 1];
+    const compartment3 = input[i + 2];
     // Find priorities
     let common12 = '';
-    for (let j = 0; j < elf1.length; j++) {
-      if (elf2.includes(elf1[j]) && !common12.includes(elf1[j]))
-        common12 = common12 + elf1[j];
+    for (let j = 0; j < compartment1.length; j++) {
+      const char = compartment1[j];
+      if (compartment2.includes(char) && !common12.includes(char))
+        common12 = common12 + char;
     }
     let common = '';
     for (let j = 0; j < common12.length; j++) {
-      if (elf3.includes(common12[j]) & !common.includes[common12[j]]) {
-        common = common + common12[j];
+      const char = common12[j];
+      if (compartment3.includes(char) & !common.includes(char)) {
+        common = common + char;
       }
     }
     priorities.push(common);

@@ -10,11 +10,9 @@ export const process = async (file) => {
     // Find priorities
     let common = '';
     for (let j = 0; j < compartment1.length; j++) {
-      if (
-        compartment2.includes(compartment1[j]) &&
-        !common.includes(compartment1[j])
-      )
-        common = common + compartment1[j];
+      const char = compartment1[j];
+      if (compartment2.includes(char) && !common.includes(char))
+        common = common + char;
     }
     priorities.push(common);
   }
