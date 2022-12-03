@@ -47,16 +47,16 @@ const RUBRIC = {
 const playGame = (input) => {
   let score = 0;
   for (let i = 0; i < input.length; i++) {
-    const [theirMysteryGuess, myMysteryOutcome] = input[i].split(' ');
-    const theirGuess = ABC[theirMysteryGuess];
-    const myOutcome = XYZ[myMysteryOutcome];
-    let myGuess = '';
-    for (let guess in RUBRIC[theirGuess]) {
-      if (RUBRIC[theirGuess][guess] == myOutcome) {
-        myGuess = guess;
+    const [theirEncodedPlay, myEncodedOutcome] = input[i].split(' ');
+    const theirPlay = ABC[theirEncodedPlay];
+    const myOutcome = XYZ[myEncodedOutcome];
+    let myPlay = '';
+    for (let play in RUBRIC[theirPlay]) {
+      if (RUBRIC[theirPlay][play] == myOutcome) {
+        myPlay = play;
       }
     }
-    score = score + SCORE[myGuess] + myOutcome;
+    score = score + SCORE[myPlay] + myOutcome;
   }
   return score;
 };

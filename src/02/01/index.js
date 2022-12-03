@@ -47,10 +47,10 @@ const RUBRIC = {
 const playGame = (input) => {
   let score = 0;
   for (let i = 0; i < input.length; i++) {
-    const [theirMysteryGuess, myMysteryGuess] = input[i].split(' ');
-    const theirGuess = ABC[theirMysteryGuess];
-    const myGuess = XYZ[myMysteryGuess];
-    score = score + SCORE[myGuess] + RUBRIC[theirGuess][myGuess];
+    const [theirEncodedPlay, myEncodedPlay] = input[i].split(' ');
+    const theirPlay = ABC[theirEncodedPlay];
+    const myPlay = XYZ[myEncodedPlay];
+    score = score + SCORE[myPlay] + RUBRIC[theirPlay][myPlay];
   }
   return score;
 };
