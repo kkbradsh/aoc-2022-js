@@ -4,7 +4,7 @@ test('process returns expected result with test input', async () => {
   // Arrange
   const expected = 12;
   // Act
-  const actual = await sut.process('./02/01/test.txt');
+  const actual = await sut.process('./02/02/test.txt');
   // Assert
   expect(actual).toBe(expected);
 });
