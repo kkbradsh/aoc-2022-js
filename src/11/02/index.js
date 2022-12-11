@@ -2,9 +2,6 @@ import { readTextFile } from '../../utils/file';
 
 const processMonkeys = (monkeys) => {
   const counts = monkeys.map((_) => 0);
-  const divisors = monkeys.map((item) => {
-    return item.divisibleBy;
-  });
   const monkeyMultiple = monkeys.reduce((multiple, item) => {
     return (multiple = item.divisibleBy * multiple);
   }, 1);
@@ -16,32 +13,14 @@ const processMonkeys = (monkeys) => {
       const monkey = monkeys[i];
       counts[i] = counts[i] + monkeys[i].items.length;
       while (monkey.items.length > 0) {
-        const [multiple, remainder] = monkey.items.shift();
-        // eval multiple & remainder
-        // Assumption: operation is either + or *
-        let old, newMultiple, newRemainder;
-        if (monkey.operation.includes('+')) {
-          newMultiple = multiple;
-          old = remainder;
-          newRemainder = eval(monkey.operation);
-        } else {
-          old = multiple;
-          newMultiple = eval(monkey.operation);
-          old = remainder;
-          newRemainder = eval(monkey.operation);
-        }
-
-        // Refactor
-        const worryMultiple =
-          newMultiple + Math.floor(newRemainder / monkeyMultiple);
-        const worryRemainder = newRemainder % monkeyMultiple;
-
-        // Update
+        const old = monkey.items.shift();
+        const worry = eval(monkey.operation);
+        const reducedWorry = worry % monkeyMultiple;
         const updateMonkey =
-          worryRemainder % monkey.divisibleBy === 0
+          reducedWorry % monkey.divisibleBy === 0
             ? monkey.trueMonkey
             : monkey.falseMonkey;
-        monkeys[updateMonkey].items.push([worryMultiple, worryRemainder]);
+        monkeys[updateMonkey].items.push(reducedWorry);
       }
     }
   }
@@ -76,7 +55,7 @@ const parseInput = (input) => {
       monkeys[monkeys.length - 1].items = line
         .replace('Starting items: ', '')
         .split(', ')
-        .map((item) => [0, Number(item)]);
+        .map((item) => Number(item));
     } else if (line.startsWith('Operation')) {
       monkeys[monkeys.length - 1].operation = line.replace(
         'Operation: new = ',
